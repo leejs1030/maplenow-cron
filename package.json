@@ -2,9 +2,11 @@
   "name": "maplenow-cron",
   "version": "0.0.1",
   "description": "cron server for maplenow logging",
-  "main": ".",
+  "main": "",
   "scripts": {
-    "test": "jest --no-cache"
+    "test": "jest --no-cache --setupFiles dotenv/config",
+    "start": "dist/index.js",
+    "dev": "tsc-watch --onSuccess \"node -r dotenv/config dist/index.js\""
   },
   "repository": {
     "type": "git",
@@ -15,6 +17,10 @@
     "maplestory",
     "nexon"
   ],
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "maplenow-tool": "^1.0.2"
+  },
   "devDependencies": {
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.25",
