@@ -5,28 +5,56 @@ import makePrettier from 'libs/html/prettierHtml';
 const cubeRankUp = async () => {
   const { pageUuid, subPageUuid, paragraphs, description } =
     await Paragraphs.Cube.getRankUpParagraphList(false);
-  const prettyHtml = await makePrettier({ pageUuid, subPageUuid, description, paragraphs });
+  const CurrentPageTitle = '잠재능력 등급 상승 확률';
+  const prettyHtml = await makePrettier({
+    pageUuid,
+    subPageUuid,
+    description,
+    paragraphs,
+    CurrentPageTitle,
+  });
   fs.writeFileSync('htmls/cube/cubeRankUp.html', prettyHtml);
 };
 
 const cubeOption = async () => {
   const { pageUuid, subPageUuid, paragraphs, description } =
     await Paragraphs.Cube.getOptionParagraphList(false);
-  const prettyHtml = await makePrettier({ pageUuid, subPageUuid, description, paragraphs });
+  const CurrentPageTitle = '옵션 등급 설정 확률';
+  const prettyHtml = await makePrettier({
+    pageUuid,
+    subPageUuid,
+    description,
+    paragraphs,
+    CurrentPageTitle,
+  });
   fs.writeFileSync('htmls/cube/cubeOption.html', prettyHtml);
 };
 
 const cubeRankUpMiracle = async () => {
   const { pageUuid, subPageUuid, paragraphs, description } =
     await Paragraphs.Cube.getRankUpParagraphList(true);
-  const prettyHtml = await makePrettier({ pageUuid, subPageUuid, description, paragraphs });
+  const CurrentPageTitle = '미라클 타임 잠재능력 등급 상승 확률';
+  const prettyHtml = await makePrettier({
+    pageUuid,
+    subPageUuid,
+    description,
+    paragraphs,
+    CurrentPageTitle,
+  });
   fs.writeFileSync('htmls/cube/cubeRankUpMiracle.html', prettyHtml);
 };
 
 const cubeOptionMiracle = async () => {
   const { pageUuid, subPageUuid, paragraphs, description } =
     await Paragraphs.Cube.getOptionParagraphList(true);
-  const prettyHtml = await makePrettier({ pageUuid, subPageUuid, description, paragraphs });
+  const CurrentPageTitle = '미라클 타임 옵션 등급 설정 확률';
+  const prettyHtml = await makePrettier({
+    pageUuid,
+    subPageUuid,
+    description,
+    paragraphs,
+    CurrentPageTitle,
+  });
   fs.writeFileSync('htmls/cube/cubeOptionMiracle.html', prettyHtml);
 };
 

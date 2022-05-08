@@ -9,11 +9,13 @@ const makePrettier = async ({
   subPageUuid,
   paragraphs,
   description,
+  CurrentPageTitle,
 }: {
   pageUuid: string;
   subPageUuid: string;
   paragraphs: { uuid: string; autoTable: mapletype.AutoTable }[];
   description: string | undefined;
+  CurrentPageTitle: string;
 }) => {
   const TableInfo = paragraphs;
   const TableItem = await Probs.getBaseProbsWithUuid(pageUuid, subPageUuid, paragraphs);
@@ -31,6 +33,7 @@ const makePrettier = async ({
       TableItem={TableItem}
       TableTitle={TableTitle}
       CollectionInfo={CollectionInfo}
+      CurrentPageTitle={CurrentPageTitle}
     />
   );
   const html = ReactDOMServer.renderToStaticMarkup(x);

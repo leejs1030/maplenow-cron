@@ -9,7 +9,8 @@ const BasePage: NextPage<{
   TableTitle: string[];
   TableInfo: { uuid: string; autoTable: mapletype.AutoTable }[];
   CollectionInfo: string;
-}> = ({ TableItem, TableTitle, TableInfo, CollectionInfo }) => {
+  CurrentPageTitle: string;
+}> = ({ TableItem, TableTitle, TableInfo, CollectionInfo, CurrentPageTitle }) => {
   return (
     <html>
       <head>
@@ -17,6 +18,7 @@ const BasePage: NextPage<{
         <style>{'table, th, td { border: 1px solid; }'}</style>
       </head>
       <body>
+        <h1>{CurrentPageTitle}</h1>
         <UseInnerHtml str={CollectionInfo} />
         <GenerateTable TableItem={TableItem} TableTitle={TableTitle} TableInfo={TableInfo} />
       </body>
