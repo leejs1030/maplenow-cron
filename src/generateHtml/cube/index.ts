@@ -1,61 +1,32 @@
 import { Paragraphs } from 'maplenow-tool';
-import * as fs from 'fs';
-import makePrettier from 'libs/html/prettierHtml';
+import writeHtml from 'libs/html/writeHtml';
 
 const cubeRankUp = async () => {
   const { pageUuid, subPageUuid, paragraphs, description } =
     await Paragraphs.Cube.getRankUpParagraphList(false);
   const CurrentPageTitle = '잠재능력 등급 상승 확률';
-  const prettyHtml = await makePrettier({
-    pageUuid,
-    subPageUuid,
-    description,
-    paragraphs,
-    CurrentPageTitle,
-  });
-  fs.writeFileSync('htmls/cube/cubeRankUp.html', prettyHtml);
+  writeHtml({ pageUuid, subPageUuid, paragraphs, description, CurrentPageTitle });
 };
 
 const cubeOption = async () => {
   const { pageUuid, subPageUuid, paragraphs, description } =
     await Paragraphs.Cube.getOptionParagraphList(false);
   const CurrentPageTitle = '옵션 등급 설정 확률';
-  const prettyHtml = await makePrettier({
-    pageUuid,
-    subPageUuid,
-    description,
-    paragraphs,
-    CurrentPageTitle,
-  });
-  fs.writeFileSync('htmls/cube/cubeOption.html', prettyHtml);
+  writeHtml({ pageUuid, subPageUuid, paragraphs, description, CurrentPageTitle });
 };
 
 const cubeRankUpMiracle = async () => {
   const { pageUuid, subPageUuid, paragraphs, description } =
     await Paragraphs.Cube.getRankUpParagraphList(true);
   const CurrentPageTitle = '미라클 타임 잠재능력 등급 상승 확률';
-  const prettyHtml = await makePrettier({
-    pageUuid,
-    subPageUuid,
-    description,
-    paragraphs,
-    CurrentPageTitle,
-  });
-  fs.writeFileSync('htmls/cube/cubeRankUpMiracle.html', prettyHtml);
+  writeHtml({ pageUuid, subPageUuid, paragraphs, description, CurrentPageTitle });
 };
 
 const cubeOptionMiracle = async () => {
   const { pageUuid, subPageUuid, paragraphs, description } =
     await Paragraphs.Cube.getOptionParagraphList(true);
   const CurrentPageTitle = '미라클 타임 옵션 등급 설정 확률';
-  const prettyHtml = await makePrettier({
-    pageUuid,
-    subPageUuid,
-    description,
-    paragraphs,
-    CurrentPageTitle,
-  });
-  fs.writeFileSync('htmls/cube/cubeOptionMiracle.html', prettyHtml);
+  writeHtml({ pageUuid, subPageUuid, paragraphs, description, CurrentPageTitle });
 };
 
 const generateCubePage = async () => {
