@@ -22,11 +22,19 @@ const makePrettier = async ({
   const TableTitle = TableInfo.filter((e) => e.autoTable).map((value) => value.autoTable.header);
   const UA =
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36 Edg/101.0.1210.39';
-  const { data: CollectionInfo } = await axios.get(description as string, {
-    headers: {
-      'User-Agent': UA,
-    },
-  });
+  let CollectionInfo: string;
+  try {
+    CollectionInfo = (
+      await axios.get(description as string, {
+        headers: {
+          'User-Agent': UA,
+        },
+      })
+    ).data;
+  } catch (err) {
+    CollectionInfo = TableInfo[0].autoTable.header;
+  }
+
   const x = (
     <BasePage
       TableInfo={TableInfo}
