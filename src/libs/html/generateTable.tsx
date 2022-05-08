@@ -81,4 +81,4 @@ const GenerateTable: NextPage<{
   );
 };
 
-export default generateTable;
+export default GenerateTable;
