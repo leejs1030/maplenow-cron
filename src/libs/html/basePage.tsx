@@ -1,7 +1,7 @@
 import React from 'react';
 import { NextPage } from 'next';
 import { mapletype } from 'maplenow-tool';
-import GenerateTable from 'libs/html/generateTable';
+import GenerateAllTable from 'libs/html/generateAllTable';
 import UseInnerHtml from 'libs/html/useInnerHtml';
 
 const BasePage: NextPage<{
@@ -20,7 +20,7 @@ const BasePage: NextPage<{
       <body>
         <h1>{CurrentPageTitle}</h1>
         <UseInnerHtml str={CollectionInfo} />
-        <GenerateTable TableItem={TableItem} TableTitle={TableTitle} TableInfo={TableInfo} />
+        <GenerateAllTable TableItem={TableItem} TableTitle={TableTitle} TableInfo={TableInfo} />
       </body>
     </html>
   );
