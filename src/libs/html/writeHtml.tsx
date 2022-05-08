@@ -8,12 +8,14 @@ const writeHtml = async ({
   paragraphs,
   description,
   CurrentPageTitle,
+  directory,
 }: {
   pageUuid: string;
   subPageUuid: string;
   paragraphs: { uuid: string; autoTable: mapletype.AutoTable }[];
   description: string | undefined;
   CurrentPageTitle: string;
+  directory: string;
 }) => {
   const prettyHtml = await makePrettier({
     pageUuid,
@@ -22,7 +24,7 @@ const writeHtml = async ({
     paragraphs,
     CurrentPageTitle,
   });
-  fs.writeFileSync('htmls/cube/cubeOptionMiracle.html', prettyHtml);
+  fs.writeFileSync(directory, prettyHtml);
 };
 
 export default writeHtml;
