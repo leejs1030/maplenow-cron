@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --no-cache --setupFiles dotenv/config",
     "start": "node -r dotenv/config dist/index.js",
-    "dev": "tsc-watch --onSuccess \"node -r dotenv/config dist/index.js\""
+    "dev": "tsc-watch --onSuccess \"ENV NODE_PATH='./dist' node -r dotenv/config -r  ./dist/index.js\""
   },
   "dependencies": {
     "axios": "^0.27.2",
