@@ -11,7 +11,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "dotenv": "^16.0.0",
-    "maplenow-tool": "^1.0.6",
+    "maplenow-tool": "^1.0.7",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
