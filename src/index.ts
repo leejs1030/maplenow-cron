@@ -6,4 +6,6 @@ const job = new CronJob('*/10 * * * * *', async () => {
   await generateHtml();
 });
 
-job.start();
+// job.start();
+
+generateHtml();

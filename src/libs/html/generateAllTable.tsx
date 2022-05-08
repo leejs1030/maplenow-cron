@@ -37,7 +37,7 @@ const generateTable = (
   colArr: string[],
 ) => {
   return (
-    <div className={'innerbefore'}>
+    <div className={'innerbefore'} id={`${Math.random()}`}>
       <UseInnerHtml str={title} />
       <div>마지막 집계: {x[0][0].windowEnd}</div>
       <div>마지막 갱신: {x[0][0].updateDt}</div>
@@ -64,14 +64,14 @@ const generateTable = (
   );
 };
 
-const GenerateTable: NextPage<{
+const GenerateAllTable: NextPage<{
   TableItem: mapletype.AutoTableItem[][][];
   TableTitle: string[];
   TableInfo: { uuid: string; autoTable: mapletype.AutoTable }[];
 }> = ({ TableItem, TableTitle, TableInfo }) => {
   const colArr: string[][] = [];
   return (
-    <div id={'tables'}>
+    <div id={`tables${Math.random()}`}>
       {TableInfo.map((value, index) => {
         colArr.push([]);
         const t = value.autoTable;
@@ -91,4 +91,4 @@ const GenerateTable: NextPage<{
   );
 };
 
-export default GenerateTable;
+export default GenerateAllTable;
