@@ -5,6 +5,7 @@
     "baseUrl": "./",
     "moduleResolution": "Node",
     "paths": {
+      "libs/*": ["./src/libs/*"]
     },
     "typeRoots": ["./node_modules/@types", "./@types"],
     "outDir": "./dist",
