@@ -1,16 +1,17 @@
-import Hello from './basePage';
-import ReactDOMServer from 'react-dom/server';
-import { Paragraphs } from 'maplenow-tool';
-import fs from 'fs';
-import prettier from 'prettier';
+import generateAbilPage from './abil';
+import generateBeautyPage from './beauty';
+import generateCubePage from './cube';
+import generateOutfitPage from './outfit';
+import generatePetPage from './pet';
+import generateStarPage from './star';
 
 const generateHtml = async () => {
-  const description = (await Paragraphs.Cube.getRankUpParagraphList()).paragraphs[0].autoTable
-    .header;
-  const html = ReactDOMServer.renderToStaticMarkup(Hello(description));
-  const htmlWDoc = '<!DOCTYPE html>' + html;
-  const prettyHtml = prettier.format(htmlWDoc, { parser: 'html' });
-  fs.writeFileSync('./a.html', prettyHtml);
+  generateAbilPage();
+  generateBeautyPage();
+  generateCubePage();
+  generateOutfitPage();
+  generatePetPage();
+  generateStarPage();
 };
 
 export default generateHtml;
