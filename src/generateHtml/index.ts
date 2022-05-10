@@ -6,12 +6,12 @@ import generatePetPage from './pet';
 import generateStarPage from './star';
 
 const generateHtml = async () => {
-  generateAbilPage();
-  generateBeautyPage();
-  generateCubePage();
-  generateOutfitPage();
-  generatePetPage();
-  generateStarPage();
+  await generateAbilPage();
+  await generateBeautyPage();
+  await generateCubePage();
+  await generateOutfitPage();
+  await generatePetPage();
+  await generateStarPage();
 };
 
 export default generateHtml;

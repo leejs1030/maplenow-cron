@@ -1,6 +1,10 @@
+import { Octokit } from '@octokit/core';
 import { mapletype } from 'maplenow-tool';
 import makePrettier from 'libs/html/prettierHtml';
-import fs from 'fs';
+
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN,
+});
 
 const writeHtml = async ({
   pageUuid,
@@ -17,6 +21,12 @@ const writeHtml = async ({
   CurrentPageTitle: string;
   directory: string;
 }) => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`;
+  const day = date.getDate() < 10 ? `0${date.getDate()}` : `${date.getDate()}`;
+  const hour = date.getHours() < 10 ? `0${date.getHours()}` : `${date.getHours()}`;
+  const result = `${year}/${month}/${day}/${hour}/${directory}`;
   const prettyHtml = await makePrettier({
     pageUuid,
     subPageUuid,
@@ -24,12 +34,27 @@ const writeHtml = async ({
     paragraphs,
     CurrentPageTitle,
   });
-  const date = new Date();
-  date.setHours(date.getHours() + 9);
-  const dateString = date.toISOString().substring(0, 13);
-  const dir = directory.lastIndexOf('/');
-  const result = `${directory.substring(0, dir + 1)}${dateString}-${directory.substring(dir + 1)}`;
-  fs.writeFileSync(result, prettyHtml);
+  for await (let i of [0, 1, 2, 3, 4]) {
+    try {
+      await octokit.request('PUT /repos/{owner}/{repo}/contents/{path}', {
+        owner: 'leejs1030',
+        repo: 'maplenow-logs-html',
+        path: result,
+        message: 'cron job',
+        committer: {
+          name: 'maplenow-cron-bot',
+          email: 'leejs1030@korea.ac.kr',
+        },
+        content: Buffer.from(prettyHtml).toString('base64'),
+      });
+    } catch (err) {
+      console.error(err);
+      continue;
+    }
+    break;
+  }
+
+  // fs.writeFileSync(result, prettyHtml);
 };
 
 export default writeHtml;
