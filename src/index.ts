@@ -9,6 +9,13 @@ axios
     (reason) => console.log(reason || reason?.data),
   )
   .catch((err) => console.log(err || err?.data));
+axios
+  .get('https://github.com/')
+  .then(
+    (data) => console.log(data.data),
+    (reason) => console.log(reason || reason?.data),
+  )
+  .catch((err) => console.log(err || err?.data));
 
 // if (process.env.CRON_REQUIRED) {
 //   const job = new CronJob('* */5 * * * *', async () => {
