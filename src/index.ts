@@ -29,9 +29,9 @@ axios
 //   });
 //   job.start();
 // }
-// generateHtml()
-//   .then(
-//     () => console.log('succes!!!'),
-//     (errReason) => console.error(errReason),
-//   )
-//   .catch((err) => console.log(err));
+generateHtml()
+  .then(
+    () => console.log('succes!!!'),
+    (errReason) => console.error(errReason),
+  )
+  .catch((err) => console.log(err));
