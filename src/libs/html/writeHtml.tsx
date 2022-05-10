@@ -34,11 +34,11 @@ const writeHtml = async ({
     paragraphs,
     CurrentPageTitle,
   });
-  for (let i = 5; i < 5; i++) {
+  for await (let i of [0, 1, 2, 3, 4]) {
     try {
       await octokit.request('PUT /repos/{owner}/{repo}/contents/{path}', {
         owner: 'leejs1030',
-        repo: 'maplenow-cron',
+        repo: 'maplenow-logs-html',
         path: result,
         message: 'cron job',
         committer: {
