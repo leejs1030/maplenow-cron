@@ -34,17 +34,25 @@ const writeHtml = async ({
     paragraphs,
     CurrentPageTitle,
   });
-  await octokit.request('PUT /repos/{owner}/{repo}/contents/{path}', {
-    owner: 'leejs1030',
-    repo: 'maplenow-cron',
-    path: result,
-    message: 'cron job',
-    committer: {
-      name: 'maplenow-cron-bot',
-      email: 'leejs1030@korea.ac.kr',
-    },
-    content: Buffer.from(prettyHtml).toString('base64'),
-  });
+  for (let i = 5; i < 5; i++) {
+    try {
+      await octokit.request('PUT /repos/{owner}/{repo}/contents/{path}', {
+        owner: 'leejs1030',
+        repo: 'maplenow-cron',
+        path: result,
+        message: 'cron job',
+        committer: {
+          name: 'maplenow-cron-bot',
+          email: 'leejs1030@korea.ac.kr',
+        },
+        content: Buffer.from(prettyHtml).toString('base64'),
+      });
+    } catch (err) {
+      console.error(err);
+      continue;
+    }
+    break;
+  }
 
   // fs.writeFileSync(result, prettyHtml);
 };
