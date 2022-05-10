@@ -9,6 +9,7 @@
     "dev": "tsc-watch --onSuccess \"ENV NODE_PATH='./dist' node -r dotenv/config ./dist/index.js\""
   },
   "dependencies": {
+    "@octokit/core": "^3.6.0",
     "axios": "^0.27.2",
     "dotenv": "^16.0.0",
     "maplenow-tool": "^1.0.10",

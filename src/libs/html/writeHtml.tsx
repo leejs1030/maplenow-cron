@@ -1,6 +1,10 @@
+import { Octokit } from '@octokit/core';
 import { mapletype } from 'maplenow-tool';
 import makePrettier from 'libs/html/prettierHtml';
-import fs from 'fs';
+
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN,
+});
 
 const writeHtml = async ({
   pageUuid,
@@ -30,7 +34,19 @@ const writeHtml = async ({
     paragraphs,
     CurrentPageTitle,
   });
-  fs.writeFileSync(result, prettyHtml);
+  await octokit.request('PUT /repos/{owner}/{repo}/contents/{path}', {
+    owner: 'leejs1030',
+    repo: 'maplenow-cron',
+    path: result,
+    message: 'cron job',
+    committer: {
+      name: 'maplenow-cron-bot',
+      email: 'leejs1030@korea.ac.kr',
+    },
+    content: Buffer.from(prettyHtml).toString('base64'),
+  });
+
+  // fs.writeFileSync(result, prettyHtml);
 };
 
 export default writeHtml;
