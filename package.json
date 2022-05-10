@@ -8,16 +8,17 @@
     "start:local": "ENV NODE_PATH='./dist' node -r dotenv/config dist/index.js",
     "dev": "tsc-watch --onSuccess \"ENV NODE_PATH='./dist' node -r dotenv/config ./dist/index.js\"",
     "build": "tsc",
-    "start": "ENV NODE_PATH='./dist' GITHUB_TOKEN='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' node dist/index.js"
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@octokit/core": "^3.6.0",
     "axios": "^0.27.2",
+    "cron": "^2.0.0",
     "maplenow-tool": "^1.0.10",
     "next": "^12.1.6",
+    "prettier": "^2.6.2",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "prettier": "^2.6.2"
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
