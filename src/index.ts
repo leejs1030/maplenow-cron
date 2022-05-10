@@ -13,9 +13,9 @@ axios
   .get('https://orng-api.nexon.com/api/services/maplestory/menus')
   .then(
     (data) => console.log(data.data),
-    (reason) => console.log(reason || reason?.data),
+    (reason) => console.log(reason.request),
   )
-  .catch((err) => console.log(err || err?.data));
+  .catch((err) => console.log(err.request));
 
 // if (process.env.CRON_REQUIRED) {
 //   const job = new CronJob('* */5 * * * *', async () => {
