@@ -2,7 +2,7 @@ import { mapletype } from 'maplenow-tool';
 import makePrettier from 'libs/html/prettierHtml';
 import fs from 'fs';
 
-const writeHtml = async ({
+const writeHtml = ({
   pageUuid,
   subPageUuid,
   paragraphs,
@@ -17,19 +17,26 @@ const writeHtml = async ({
   CurrentPageTitle: string;
   directory: string;
 }) => {
-  const prettyHtml = await makePrettier({
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`;
+  const day = date.getDate() < 10 ? `0${date.getDate()}` : `${date.getDate()}`;
+  const hour = date.getHours() < 10 ? `0${date.getHours()}` : `${date.getHours()}`;
+  const result = `${year}/${month}/${day}/${hour}/${directory}`;
+  console.log(result);
+  makePrettier({
     pageUuid,
     subPageUuid,
     description,
     paragraphs,
     CurrentPageTitle,
+  }).then((prettyHtml) => {
+    try {
+      fs.writeFileSync(result, prettyHtml);
+    } catch (err) {
+      console.log(err);
+    }
   });
-  const date = new Date();
-  date.setHours(date.getHours() + 9);
-  const dateString = date.toISOString().substring(0, 13);
-  const dir = directory.lastIndexOf('/');
-  const result = `${directory.substring(0, dir + 1)}${dateString}-${directory.substring(dir + 1)}`;
-  fs.writeFileSync(result, prettyHtml);
 };
 
 export default writeHtml;
