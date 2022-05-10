@@ -7,6 +7,10 @@ if (process.env.CRON_REQUIRED) {
     await generateHtml();
   });
   job.start();
-} else {
-  generateHtml();
 }
+generateHtml()
+  .then(
+    () => console.log('succes!!!'),
+    (errReason) => console.error(errReason),
+  )
+  .catch((err) => console.log(err));
