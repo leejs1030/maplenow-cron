@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@octokit/core": "^3.6.0",
-    "axios": "^0.27.2",
     "maplenow-tool": "^1.0.10",
     "next": "^12.1.6",
     "react": "^18.1.0",
