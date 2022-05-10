@@ -5,6 +5,7 @@
     "baseUrl": "./",
     "moduleResolution": "Node",
     "paths": {
+      "libs/*": ["./src/libs/*"]
     },
     "typeRoots": ["./node_modules/@types", "./@types"],
     "outDir": "./dist",
@@ -13,7 +14,7 @@
     "strict": true,
     "skipLibCheck": true,
     "declaration": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "lib": ["dom", "es2019"]
   },
   "include": ["./src/**/*", "./@types/**/*"],

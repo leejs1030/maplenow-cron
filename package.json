@@ -5,14 +5,19 @@
   "main": "",
   "scripts": {
     "test": "jest --no-cache --setupFiles dotenv/config",
-    "start": "node -r dotenv/config dist/index.js",
-    "dev": "tsc-watch --onSuccess \"node -r dotenv/config dist/index.js\""
+    "start:local": "ENV NODE_PATH='./dist' node -r dotenv/config dist/index.js",
+    "dev": "tsc-watch --onSuccess \"ENV NODE_PATH='./dist' node -r dotenv/config ./dist/index.js\"",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "dependencies": {
+    "@octokit/core": "^3.6.0",
     "axios": "^0.27.2",
     "dotenv": "^16.0.0",
-    "maplenow-tool": "^1.0.6",
+    "maplenow-tool": "^1.0.10",
+    "next": "^12.1.6",
     "react": "^18.1.0",
+    "react-async": "^10.0.1",
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
