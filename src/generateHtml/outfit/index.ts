@@ -8,7 +8,7 @@ const royalStylePage = async () => {
     await Paragraphs.Outfit.getRoyalStyleParagraphList();
   const CurrentPageTitle = '로얄스타일';
   const directory = `${basedir}/1.html`;
-  writeHtml({ pageUuid, subPageUuid, paragraphs, description, CurrentPageTitle, directory });
+  await writeHtml({ pageUuid, subPageUuid, paragraphs, description, CurrentPageTitle, directory });
 };
 
 const redPiecePage = async () => {
@@ -16,7 +16,7 @@ const redPiecePage = async () => {
     await Paragraphs.Outfit.getRedPieceParagraphList();
   const CurrentPageTitle = '마스터피스 레드';
   const directory = `${basedir}/2.html`;
-  writeHtml({ pageUuid, subPageUuid, paragraphs, description, CurrentPageTitle, directory });
+  await writeHtml({ pageUuid, subPageUuid, paragraphs, description, CurrentPageTitle, directory });
 };
 
 const blackPiecePage = async () => {
@@ -24,13 +24,13 @@ const blackPiecePage = async () => {
     await Paragraphs.Outfit.getBlackPieceParagraphList();
   const CurrentPageTitle = '마스터피스 블랙';
   const directory = `${basedir}/3.html`;
-  writeHtml({ pageUuid, subPageUuid, paragraphs, description, CurrentPageTitle, directory });
+  await writeHtml({ pageUuid, subPageUuid, paragraphs, description, CurrentPageTitle, directory });
 };
 
 const generateOutfitPage = async () => {
-  royalStylePage();
-  redPiecePage();
-  blackPiecePage();
+  await royalStylePage();
+  await redPiecePage();
+  await blackPiecePage();
 };
 
 export default generateOutfitPage;
