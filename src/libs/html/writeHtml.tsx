@@ -2,6 +2,7 @@ import { Octokit } from '@octokit/core';
 import { mapletype } from 'maplenow-tool';
 import makePrettier from 'libs/html/prettierHtml';
 
+console.log(process.env.GITHUB_TOKEN);
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 });
@@ -48,7 +49,7 @@ const writeHtml = async ({
         content: Buffer.from(prettyHtml).toString('base64'),
       });
     } catch (err) {
-      console.error(err);
+      console.error('err at writing');
       continue;
     }
     break;
