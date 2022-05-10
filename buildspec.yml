@@ -8,6 +8,7 @@ phases:
     runtime-versions:
       nodejs: 14
     commands:
+      - nvm use 16
       - npm i
   pre_build:
     commands:
