@@ -2,7 +2,7 @@ import { mapletype } from 'maplenow-tool';
 import makePrettier from 'libs/html/prettierHtml';
 import fs from 'fs';
 
-const writeHtml = ({
+const writeHtml = async ({
   pageUuid,
   subPageUuid,
   paragraphs,
@@ -23,20 +23,14 @@ const writeHtml = ({
   const day = date.getDate() < 10 ? `0${date.getDate()}` : `${date.getDate()}`;
   const hour = date.getHours() < 10 ? `0${date.getHours()}` : `${date.getHours()}`;
   const result = `${year}/${month}/${day}/${hour}/${directory}`;
-  console.log(result);
-  makePrettier({
+  const prettyHtml = await makePrettier({
     pageUuid,
     subPageUuid,
     description,
     paragraphs,
     CurrentPageTitle,
-  }).then((prettyHtml) => {
-    try {
-      fs.writeFileSync(result, prettyHtml);
-    } catch (err) {
-      console.log(err);
-    }
   });
+  fs.writeFileSync(result, prettyHtml);
 };
 
 export default writeHtml;
