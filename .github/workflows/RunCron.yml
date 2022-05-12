@@ -4,6 +4,9 @@ name:
 on:
   schedule:
     - cron: '*/5 * * * *'
+  push:
+    branches:
+      - 'runningPushTest'
 
 jobs:
   runcron:
@@ -19,6 +22,6 @@ jobs:
       - run: npm run build
       - run: npm run start
         env:
-          MYTOK: ${{ secrets.MYTOK }}
-          owner: ${{ secrets.owner }}
-          repo: ${{ secrets.repo }}
+          ABCDEFG: ${{ secrets.ABCDEFG }}
+          OWNER: ${{ secrets.OWNER }}
+          REPO: ${{ secrets.REPO }}
