@@ -1,5 +1,6 @@
 import { Paragraphs } from 'maplenow-tool';
 import writeHtml from 'libs/html/writeHtml';
+import { delay } from 'libs/time';
 
 const basedir = 'pet';
 
@@ -29,7 +30,9 @@ const crystalDreamPage = async () => {
 
 const generatePetPage = async () => {
   await wonderBerryPage();
+  await delay(1250, 1080);
   await crystalSweetPage();
+  await delay(10, 1780);
   await crystalDreamPage();
 };
 

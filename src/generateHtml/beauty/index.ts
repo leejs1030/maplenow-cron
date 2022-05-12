@@ -1,5 +1,6 @@
 import { Paragraphs } from 'maplenow-tool';
 import writeHtml from 'libs/html/writeHtml';
+import { delay } from 'libs/time';
 
 const basedir = 'beauty';
 
@@ -37,8 +38,11 @@ const royalFacePageChange = async () => {
 
 const generateBeautyPage = async () => {
   await royalHairPage();
+  await delay(385, 1657);
   await royalFacePage();
+  await delay(125, 2626);
   await royalHairPageChange();
+  await delay(843, 1984);
   await royalFacePageChange();
 };
 

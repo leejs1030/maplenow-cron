@@ -1,5 +1,6 @@
 import { Paragraphs } from 'maplenow-tool';
 import writeHtml from 'libs/html/writeHtml';
+import { delay } from 'libs/time';
 
 const basedir = 'outfit';
 
@@ -29,7 +30,9 @@ const blackPiecePage = async () => {
 
 const generateOutfitPage = async () => {
   await royalStylePage();
+  await delay(1050, 1100);
   await redPiecePage();
+  await delay(275, 2030);
   await blackPiecePage();
 };
 
