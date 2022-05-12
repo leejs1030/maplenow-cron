@@ -25,3 +25,4 @@ jobs:
           ABCDEFG: ${{ secrets.ABCDEFG }}
           OWNER: ${{ secrets.OWNER }}
           REPO: ${{ secrets.REPO }}
+          NODE_PATH: ${{ secrets.NODE_PATH }}
