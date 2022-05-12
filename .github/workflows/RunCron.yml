@@ -12,6 +12,7 @@ on:
 jobs:
   runcron:
     runs-on: ubuntu-22.04
+    environment: ljs1030git
     steps:
       - uses: actions/checkout@v2
         with:
