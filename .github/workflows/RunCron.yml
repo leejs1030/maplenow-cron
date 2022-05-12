@@ -19,6 +19,6 @@ jobs:
       - run: npm run build
       - run: npm run start
         env:
-          MYTOK: ${{ secrets.tok }}
+          MYTOK: ${{ secrets.MYTOK }}
           owner: ${{ secrets.owner }}
           repo: ${{ secrets.repo }}
