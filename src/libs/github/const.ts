@@ -1,7 +1,7 @@
 import { Octokit } from '@octokit/core';
 
 const octokit = new Octokit({
-  auth: process.env.MYTOK,
+  auth: process.env.ABCDEFG,
 });
 export default octokit;
 
