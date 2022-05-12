@@ -1,5 +1,6 @@
 import { Paragraphs } from 'maplenow-tool';
 import writeHtml from 'libs/html/writeHtml';
+import { delay } from 'libs/time';
 
 const basedir = 'star';
 
@@ -45,9 +46,13 @@ const starShiningPage = async () => {
 
 const generateStarPage = async () => {
   await starNormalPage();
+  await delay(1050, 1627);
   await starThirtyPage();
+  await delay(292, 629);
   await starMultipleFivePage();
+  await delay(2958, 3622);
   await starUnderTen();
+  await delay(29, 260);
   await starShiningPage();
 };
 

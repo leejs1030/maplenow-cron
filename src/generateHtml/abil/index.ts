@@ -1,5 +1,6 @@
 import { Paragraphs } from 'maplenow-tool';
 import writeHtml from 'libs/html/writeHtml';
+import { delay } from 'libs/time';
 
 const basedir = 'abil';
 
@@ -21,6 +22,7 @@ const circulatorAbility = async () => {
 
 const generateAbilPage = async () => {
   await pointAbility();
+  await delay(1350, 2100);
   await circulatorAbility();
 };
 
