@@ -5,8 +5,8 @@ const octokit = new Octokit({
 });
 export default octokit;
 
-export const owner = process.env.owner as string;
-export const repo = process.env.repo as string;
+export const owner = process.env.OWNER as string;
+export const repo = process.env.REPO as string;
 export const branch = 'main';
 
 export const blobs: { path: string; sha: string; type: 'blob'; mode: '100644' }[] = [];
