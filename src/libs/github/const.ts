@@ -1,7 +1,7 @@
 import { Octokit } from '@octokit/core';
 
 const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN,
+  auth: process.env.MYTOK,
 });
 export default octokit;
 
