@@ -1,5 +1,6 @@
 import { Paragraphs } from 'maplenow-tool';
 import writeHtml from 'libs/html/writeHtml';
+import { delay } from 'libs/time';
 
 const basedir = 'cube';
 
@@ -37,8 +38,11 @@ const cubeOptionMiracle = async () => {
 
 const generateCubePage = async () => {
   await cubeRankUp();
+  await delay(102, 1060);
   await cubeOption();
+  await delay(50, 100);
   await cubeRankUpMiracle();
+  await delay(726, 1120);
   await cubeOptionMiracle();
 };
 

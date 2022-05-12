@@ -1,5 +1,5 @@
 import octokit, { owner, repo, store } from 'libs/github/const';
-import KRDate from 'libs/time/KRDate';
+import { KRDate } from 'libs/time';
 
 export const createCommit = async () => {
   const date = KRDate();

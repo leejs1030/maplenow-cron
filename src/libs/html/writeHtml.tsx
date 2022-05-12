@@ -1,7 +1,7 @@
 import { mapletype } from 'maplenow-tool';
 import makePrettier from 'libs/html/prettierHtml';
 import github from 'libs/github';
-import KRDate from 'libs/time/KRDate';
+import { KRDate } from 'libs/time';
 
 const writeHtml = async ({
   pageUuid,
