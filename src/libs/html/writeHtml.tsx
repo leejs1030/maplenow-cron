@@ -33,7 +33,7 @@ const writeHtml = async ({
   });
   for await (let i of [0, 1, 2, 3, 4]) {
     try {
-      await github.createBlob(Buffer.from(prettyHtml).toString('base64'), result);
+      await github.createBlob(prettyHtml, result);
     } catch (err) {
       console.error(err);
       continue;
