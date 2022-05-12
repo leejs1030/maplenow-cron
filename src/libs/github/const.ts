@@ -5,6 +5,11 @@ const octokit = new Octokit({
 });
 export default octokit;
 
+console.log('printenv');
+console.log(process.env.OWNER);
+console.log(process.env.REPO);
+console.log(process.env.owner);
+console.log(process.env.repo);
 export const owner = process.env.OWNER as string;
 export const repo = process.env.REPO as string;
 export const branch = 'main';
