@@ -3,6 +3,15 @@ import { mapletype } from 'maplenow-tool';
 import { colMapper } from '../../constants';
 import UseInnerHtml from 'libs/html/useInnerHtml';
 
+const translateCommaNumber = (str: string | number) => {
+  if (typeof str === 'number') return str.toLocaleString();
+  try {
+    return parseInt(str, 10).toLocaleString();
+  } catch (err) {
+    return str;
+  }
+};
+
 const GenerateBody: NextPage<{
   TableItem: mapletype.AutoTableItem[][];
   colArr: string[];
@@ -21,7 +30,7 @@ const GenerateBody: NextPage<{
                   className={'table-body table-body-row table-body-row-col'}
                   id={`table-body-${index}-row-${rowidx}-col-${colidx}`}
                 >
-                  {tableItem[value]}
+                  {translateCommaNumber(tableItem[value])}
                 </td>
                 // 실제로 사용될 col은 모두 colArr에 저장되어 있음.
                 // tableItem으로부터 실제로 사용할 col을 뽑아오기.

@@ -1,6 +1,7 @@
 import { mapletype } from 'maplenow-tool';
 import makePrettier from 'libs/html/prettierHtml';
 import github from 'libs/github';
+import KRDate from 'libs/time/KRDate';
 
 const writeHtml = async ({
   pageUuid,
@@ -17,7 +18,7 @@ const writeHtml = async ({
   CurrentPageTitle: string;
   directory: string;
 }) => {
-  const date = new Date();
+  const date = KRDate();
   const year = date.getFullYear();
   const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`;
   const day = date.getDate() < 10 ? `0${date.getDate()}` : `${date.getDate()}`;
