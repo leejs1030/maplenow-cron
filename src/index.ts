@@ -1,4 +1,6 @@
 require('dotenv').config();
+
+import { CronJob } from 'cron';
 import generateHtml from './generateHtml';
 import github from 'libs/github';
 import { KRDate } from 'libs/time';
@@ -38,8 +40,6 @@ const main = async () => {
   }
 };
 
-main();
-
-// const test = async () => {};
-//
-// test();
+new CronJob('0 5 * * * *', () => {
+  main();
+}).start();
