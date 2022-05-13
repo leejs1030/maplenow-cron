@@ -22,6 +22,7 @@ const main = async () => {
 
       start = KRDate();
       new_tree = await github.deleteFiles(base_tree, start);
+      if (!new_tree) return;
       end = KRDate();
       commit = await github.createCommit({
         start,

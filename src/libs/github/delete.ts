@@ -10,7 +10,11 @@ const folders: [string, string[]][] = [
 ];
 
 export const deleteFiles = async (base_tree: string, current: Date) => {
-  const finding = '2022/05/12/23'; //.split('/');
+  const year = current.getFullYear() - 1;
+  const month = current.getMonth() + 1;
+  const date = current.getDate();
+  const hour = current.getHours();
+  const finding = `${year}/${month}/${date}/${hour}`; // 1년 전 구하기
   const files = folders
     .map((page) =>
       page[1].map(
@@ -34,5 +38,6 @@ export const deleteFiles = async (base_tree: string, current: Date) => {
       tree: files,
       base_tree,
     })
-    .then((val) => val.data.sha);
+    .then((val) => val.data.sha)
+    .catch((err) => '');
 };
