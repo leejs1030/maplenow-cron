@@ -1,6 +1,9 @@
-import octokit, { owner, repo, createBlobs } from './const';
+import octokit, { owner, repo } from './const';
 
-export const createBlob = async (content: string, path: string) => {
+export const createBlob = async (
+  content: string,
+  path: string,
+): Promise<{ path: string; sha: string; type: 'blob'; mode: '100644' }> => {
   const { sha } = (
     await octokit.request('POST /repos/{owner}/{repo}/git/blobs', {
       owner,
@@ -8,5 +11,5 @@ export const createBlob = async (content: string, path: string) => {
       content: Buffer.from(content).toString('utf-8'),
     })
   ).data;
-  createBlobs.push({ path, sha, type: 'blob', mode: '100644' });
+  return { path, sha, type: 'blob', mode: '100644' };
 };

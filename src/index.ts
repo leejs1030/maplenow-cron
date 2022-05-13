@@ -6,22 +6,25 @@ const main = async () => {
   for await (let i of [0, 1, 2]) {
     try {
       const start = KRDate();
-      await github.getTree();
-      await generateHtml();
-      await github.createTree();
-      await github.createCommit(start, KRDate());
-      await github.changeRef();
-      await github.clearStatus();
+      const base_tree = await github.getBaseTree();
+      const tree = await generateHtml();
+      const new_tree = await github.createTree(tree, base_tree);
+
+      const end = KRDate();
+      const commit = await github.createCommit({ start, end, new_tree, base_tree });
+      const head = await github.changeRef(commit);
+      // console.log(head);
+      // console.log(await github.getBaseTree());
+      // const delete_tree = await github.deleteFiles()
+      return;
     } catch (err) {
       console.log(err);
-      continue;
     }
-    break;
   }
 };
 
-// main();
+main();
 
-const test = async () => {};
-
-test();
+// const test = async () => {};
+//
+// test();

@@ -31,15 +31,16 @@ const writeHtml = async ({
     paragraphs,
     CurrentPageTitle,
   });
+  let lastErr;
   for await (let i of [0, 1, 2, 3, 4]) {
     try {
-      await github.createBlob(prettyHtml, result);
+      return await github.createBlob(prettyHtml, result);
     } catch (err) {
       console.error(err);
-      continue;
+      lastErr = err;
     }
-    break;
   }
+  throw lastErr;
 };
 
 export default writeHtml;
