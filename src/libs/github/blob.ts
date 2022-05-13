@@ -1,4 +1,4 @@
-import octokit, { owner, repo, blobs } from './const';
+import octokit, { owner, repo, createBlobs } from './const';
 
 export const createBlob = async (content: string, path: string) => {
   const { sha } = (
@@ -8,5 +8,5 @@ export const createBlob = async (content: string, path: string) => {
       content: Buffer.from(content).toString('utf-8'),
     })
   ).data;
-  blobs.push({ path, sha, type: 'blob', mode: '100644' });
+  createBlobs.push({ path, sha, type: 'blob', mode: '100644' });
 };

@@ -20,4 +20,8 @@ const main = async () => {
   }
 };
 
-main();
+// main();
+
+const test = async () => {};
+
+test();
