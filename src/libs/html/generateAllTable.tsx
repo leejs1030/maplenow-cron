@@ -6,6 +6,7 @@ import UseInnerHtml from 'libs/html/useInnerHtml';
 const translateCommaNumber = (str: string | number) => {
   if (typeof str === 'number') return str.toLocaleString();
   try {
+    if (parseInt(str, 10).toString() !== str) return str;
     return parseInt(str, 10).toLocaleString();
   } catch (err) {
     return str;

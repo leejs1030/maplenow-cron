@@ -1,24 +1,22 @@
 name:
   RunCron
 
-on:
-  schedule:
-    - cron: '5 * * * *'
-
 jobs:
   runcron:
     runs-on: ubuntu-22.04
+    environment: ljs1030git
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: 'deploy/githubAction'
+          ref: 'master'
       - uses: actions/setup-node@v1
         with:
-          node-version: '16.x'
+          node-version: '14.17.4'
       - run: npm install
       - run: npm run build
       - run: npm run start
         env:
-          MYTOK: ${{ secrets.MYTOK }}
-          owner: ${{ secrets.owner }}
-          repo: ${{ secrets.repo }}
+          ABCDEFG: ${{ secrets.ABCDEFG }}
+          OWNER: ${{ secrets.OWNER }}
+          REPO: ${{ secrets.REPO }}
+          NODE_PATH: ${{ secrets.NODE_PATH }}
