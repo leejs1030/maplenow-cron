@@ -7,17 +7,18 @@ import generateStarPage from './star';
 import { delay } from 'libs/time';
 
 const generateHtml = async () => {
-  await generateAbilPage();
+  const abil = await generateAbilPage();
   await delay(1050, 2900);
-  await generateBeautyPage();
+  const beauty = await generateBeautyPage();
   await delay(970, 2020);
-  await generateCubePage();
+  const cube = await generateCubePage();
   await delay(825, 1836);
-  await generateOutfitPage();
+  const outfit = await generateOutfitPage();
   await delay(1028, 1500);
-  await generatePetPage();
+  const pet = await generatePetPage();
   await delay(1059, 2098);
-  await generateStarPage();
+  const star = await generateStarPage();
+  return [...abil, ...beauty, ...cube, ...outfit, ...pet, ...star];
 };
 
 export default generateHtml;

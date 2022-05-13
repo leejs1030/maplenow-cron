@@ -1,16 +1,15 @@
-import { createCommit } from './commit';
-import { createBlob } from 'libs/github/blob';
-import { createTree, getTree } from 'libs/github/tree';
-import { changeRef } from 'libs/github/ref';
-import { clearStatus } from 'libs/github/const';
+import * as commit from './commit';
+import * as blob from 'libs/github/blob';
+import * as tree from 'libs/github/tree';
+import * as ref from 'libs/github/ref';
+import * as del from 'libs/github/delete';
 
 const github = {
-  createCommit,
-  createBlob,
-  getTree,
-  createTree,
-  changeRef,
-  clearStatus,
+  ...commit,
+  ...blob,
+  ...tree,
+  ...ref,
+  ...del,
 };
 
 export default github;

@@ -9,7 +9,14 @@ const wonderBerryPage = async () => {
     await Paragraphs.Pet.getWonderBerryParagraphList();
   const CurrentPageTitle = '위습의 원더베리';
   const directory = `${basedir}/1.html`;
-  await writeHtml({ pageUuid, subPageUuid, paragraphs, description, CurrentPageTitle, directory });
+  return await writeHtml({
+    pageUuid,
+    subPageUuid,
+    paragraphs,
+    description,
+    CurrentPageTitle,
+    directory,
+  });
 };
 
 const crystalSweetPage = async () => {
@@ -17,7 +24,14 @@ const crystalSweetPage = async () => {
     await Paragraphs.Pet.getCrystalSweetParagraphList();
   const CurrentPageTitle = '루나 크리스탈 스윗';
   const directory = `${basedir}/2.html`;
-  await writeHtml({ pageUuid, subPageUuid, paragraphs, description, CurrentPageTitle, directory });
+  return await writeHtml({
+    pageUuid,
+    subPageUuid,
+    paragraphs,
+    description,
+    CurrentPageTitle,
+    directory,
+  });
 };
 
 const crystalDreamPage = async () => {
@@ -25,15 +39,23 @@ const crystalDreamPage = async () => {
     await Paragraphs.Pet.getCrystalDreamParagraphList();
   const CurrentPageTitle = '루나 크리스탈 드림';
   const directory = `${basedir}/3.html`;
-  await writeHtml({ pageUuid, subPageUuid, paragraphs, description, CurrentPageTitle, directory });
+  return await writeHtml({
+    pageUuid,
+    subPageUuid,
+    paragraphs,
+    description,
+    CurrentPageTitle,
+    directory,
+  });
 };
 
 const generatePetPage = async () => {
-  await wonderBerryPage();
+  const wonderBerry = await wonderBerryPage();
   await delay(1250, 1080);
-  await crystalSweetPage();
+  const crystalSweet = await crystalSweetPage();
   await delay(10, 1780);
-  await crystalDreamPage();
+  const crystalDream = await crystalDreamPage();
+  return [wonderBerry, crystalSweet, crystalDream];
 };
 
 export default generatePetPage;
