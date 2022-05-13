@@ -8,7 +8,7 @@ export const getBaseTree = async () => {
       branch,
     })
     .then((val) => val.data.commit);
-  return sha;
+  return sha as string;
 };
 
 export const getTree = async (tree_sha: string) => {

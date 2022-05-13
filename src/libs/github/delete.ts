@@ -9,7 +9,7 @@ const folders: [string, string[]][] = [
   ['star', ['1', '2', '3', '4', '5']],
 ];
 
-export const deleteFiles = async (base_tree: string) => {
+export const deleteFiles = async (base_tree: string, current: Date) => {
   const finding = '2022/05/12/23'; //.split('/');
   const files = folders
     .map((page) =>
@@ -27,7 +27,6 @@ export const deleteFiles = async (base_tree: string) => {
       acc = [...acc, ...cur];
       return acc;
     }, []);
-  console.log(files);
   return octokit
     .request('POST /repos/{owner}/{repo}/git/trees', {
       owner,

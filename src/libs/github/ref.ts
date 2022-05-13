@@ -8,5 +8,5 @@ export const changeRef = async (commit: string) => {
       ref: 'heads/main',
       sha: commit,
     })
-    .then((val) => val.data.object);
+    .then((val) => val.data.object.sha);
 };
