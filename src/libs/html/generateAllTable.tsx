@@ -19,17 +19,22 @@ const GenerateBody: NextPage<{
   index: number;
 }> = ({ TableItem, colArr, index }) => {
   return (
-    <tbody className={'table-body'} id={`table-body-${index}`}>
+    <tbody className={'table-body'} id={`table-body-${index}`} key={`table-body-${index}`}>
       {TableItem.map((arr) => {
         // 근본적으로 2차원 배열 + 내부 테이블도 반복문으로 생성이기에 코드가 복잡.
         return arr.map((tableItem: any, rowidx) => {
           // 여기서부터 tableItem이 개별 객체가 됨.
           return (
-            <tr className={'table-body table-body-row'} id={`table-body-${index}-row-${rowidx}`}>
+            <tr
+              className={'table-body table-body-row'}
+              id={`table-body-${index}-row-${rowidx}`}
+              key={`table-body-${index}-row-${rowidx}`}
+            >
               {colArr.map((value, colidx) => (
                 <td
                   className={'table-body table-body-row table-body-row-col'}
                   id={`table-body-${index}-row-${rowidx}-col-${colidx}`}
+                  key={`table-body-${index}-row-${rowidx}-col-${colidx}`}
                 >
                   {translateCommaNumber(tableItem[value])}
                 </td>
@@ -52,7 +57,7 @@ const generateTable = (
   index: number,
 ) => {
   return (
-    <div className={'table-wrapper'} id={`table-wrapper-${index}`}>
+    <div className={'table-wrapper'} id={`table-wrapper-${index}`} key={`table-wrapper-${index}`}>
       <UseInnerHtml str={title} />
       <div className={'last-window'} id={`window-${index}`}>
         마지막 집계: {x[0][0].windowEnd}
