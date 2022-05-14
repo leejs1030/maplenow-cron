@@ -13,14 +13,16 @@ const BasePage: NextPage<{
 }> = ({ TableItem, TableTitle, TableInfo, CollectionInfo, CurrentPageTitle }) => {
   return (
     <html>
-      <head>
+      <head id={'head'}>
         <meta charSet="UTF-8" />
         <style>{'table, th, td { border: 1px solid; }'}</style>
       </head>
-      <body>
-        <h1>{CurrentPageTitle}</h1>
-        <UseInnerHtml str={CollectionInfo} />
-        <GenerateAllTable TableItem={TableItem} TableTitle={TableTitle} TableInfo={TableInfo} />
+      <body id={'body'}>
+        <div id={'body-div'}>
+          <h1>{CurrentPageTitle}</h1>
+          <UseInnerHtml str={CollectionInfo} />
+          <GenerateAllTable TableItem={TableItem} TableTitle={TableTitle} TableInfo={TableInfo} />
+        </div>
       </body>
     </html>
   );
