@@ -21,7 +21,7 @@ const royalHairPage = async () => {
 
 const royalFacePage = async () => {
   const { pageUuid, subPageUuid, paragraphs, description } =
-    await Paragraphs.Beauty.getRoyalHairParagraphList(false);
+    await Paragraphs.Beauty.getRoyalFaceParagraphList(false);
   const CurrentPageTitle = '로얄 성형 쿠폰';
   const directory = `${basedir}/2.html`;
   return await writeHtml({
@@ -51,7 +51,7 @@ const royalHairPageChange = async () => {
 
 const royalFacePageChange = async () => {
   const { pageUuid, subPageUuid, paragraphs, description } =
-    await Paragraphs.Beauty.getRoyalHairParagraphList(true);
+    await Paragraphs.Beauty.getRoyalFaceParagraphList(true);
   const CurrentPageTitle = '체인지 로얄 성형 쿠폰';
   const directory = `${basedir}/4.html`;
   return await writeHtml({
