@@ -43,3 +43,5 @@ const main = async () => {
 new CronJob('0 5 * * * *', () => {
   main();
 }).start();
+
+main();
