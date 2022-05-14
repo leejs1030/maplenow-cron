@@ -6,6 +6,7 @@ import github from 'libs/github';
 import { KRDate } from 'libs/time';
 
 const main = async () => {
+  console.log('job start');
   for await (let i of [0, 1, 2]) {
     try {
       let start: Date;
@@ -24,7 +25,7 @@ const main = async () => {
 
       start = KRDate();
       new_tree = await github.deleteFiles(base_tree, start);
-      if (!new_tree) return;
+      if (!new_tree) return console.log('job finished without delete!');
       end = KRDate();
       commit = await github.createCommit({
         start,
@@ -33,9 +34,10 @@ const main = async () => {
         base_tree,
       });
       await github.changeRef(commit);
-      return;
+      return console.log('job finished with delete!');
     } catch (err) {
-      console.log(err);
+      console.error(new Date());
+      console.error(err);
     }
   }
 };
