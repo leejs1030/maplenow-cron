@@ -60,10 +60,20 @@ const generateTable = (
     <div className={'table-wrapper'} id={`table-wrapper-${index}`} key={`table-wrapper-${index}`}>
       <UseInnerHtml str={title} />
       <div className={'last-window'} id={`window-${index}`}>
-        마지막 집계: {x[0][0].windowEnd}
+        마지막 집계:{' '}
+        {x[0][0].windowEnd
+          ? new Date(new Date(x[0][0].windowEnd).getTime() + 19 * 60 * 60 * 1000)
+              .toISOString()
+              .substring(0, 19)
+          : ''}
       </div>
       <div className={'last-update'} id={`update-${index}`}>
-        마지막 갱신: {x[0][0].updateDt}
+        마지막 갱신:{' '}
+        {x[0][0].updateDt
+          ? new Date(new Date(x[0][0].updateDt).getTime() + 18 * 60 * 60 * 1000)
+              .toISOString()
+              .substring(0, 19)
+          : ''}
       </div>
       <table className={'table'} id={`table-${index}`}>
         <thead className={'table-head'} id={`table-head-${index}`}>

@@ -36,6 +36,7 @@ const writeHtml = async ({
     try {
       return await github.createBlob(prettyHtml, result);
     } catch (err) {
+      console.error(new Date());
       console.error(err);
       lastErr = err;
     }
