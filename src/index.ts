@@ -1,12 +1,11 @@
 require('dotenv').config();
 
-import { CronJob } from 'cron';
+const cron = require('node-cron');
 import generateHtml from './generateHtml';
 import github from 'libs/github';
 import { KRDate } from 'libs/time';
 
 const main = async () => {
-  console.log('job start');
   for await (let i of [0, 1, 2]) {
     try {
       let start: Date;
@@ -16,6 +15,8 @@ const main = async () => {
       let commit: string;
 
       start = KRDate();
+      console.log(`job start at ${start.toLocaleString('ko-KR')}`);
+
       base_tree = await github.getBaseTree();
       new_tree = await github.createTree(await generateHtml(), base_tree);
       end = KRDate();
@@ -25,7 +26,8 @@ const main = async () => {
 
       start = KRDate();
       new_tree = await github.deleteFiles(base_tree, start);
-      if (!new_tree) return console.log('job finished without delete!');
+      if (!new_tree)
+        return console.log(`job finished without delete!${KRDate().toLocaleString('ko-KR')}`);
       end = KRDate();
       commit = await github.createCommit({
         start,
@@ -34,16 +36,16 @@ const main = async () => {
         base_tree,
       });
       await github.changeRef(commit);
-      return console.log('job finished with delete!');
+      return console.log(`job finished with delete!${KRDate().toLocaleString('ko-KR')}`);
     } catch (err) {
-      console.error(new Date());
+      console.error(KRDate().toLocaleString('ko-KR'));
       console.error(err);
     }
   }
 };
 
-new CronJob('0 5 * * * *', () => {
+cron.schedule('25 * * * *', () => {
   main();
-}).start();
+});
 
 main();
