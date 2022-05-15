@@ -44,7 +44,7 @@ const main = async () => {
   }
 };
 
-cron.schedule('25 * * * *', () => {
+cron.schedule('5 * * * *', () => {
   main();
 });
 
