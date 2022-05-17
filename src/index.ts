@@ -44,8 +44,7 @@ const main = async () => {
   }
 };
 
-cron.schedule('5 * * * *', () => {
-  main();
-});
+
+if (process.env.CRON_REQUIRED) cron.schedule(process.env.CRON_REQUIRED, main);
 
 main();
