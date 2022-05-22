@@ -9,7 +9,7 @@
     "dev": "tsc-watch --onSuccess \"ENV NODE_PATH='./dist' node -r dotenv/config ./dist/index.js\"",
     "build": "tsc",
     "start": "NODE_PATH='./dist' node dist/index.js",
-    "start:prod": "NODE_PATH='./dist' pm2 start node dist/index.js"
+    "start:prod": "NODE_PATH='./dist' pm2 start dist/index.js"
   },
   "dependencies": {
     "@octokit/core": "^3.6.0",
