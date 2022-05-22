@@ -1,6 +1,6 @@
 {
   "name": "maplenow-cron",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "cron server for maplenow logging",
   "main": "",
   "scripts": {
