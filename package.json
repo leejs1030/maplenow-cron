@@ -8,12 +8,13 @@
     "start:local": "ENV NODE_PATH='./dist' node -r dotenv/config dist/index.js",
     "dev": "tsc-watch --onSuccess \"ENV NODE_PATH='./dist' node -r dotenv/config ./dist/index.js\"",
     "build": "tsc",
-    "start": "NODE_PATH='./dist' node dist/index.js"
+    "start": "NODE_PATH='./dist' node dist/index.js",
+    "start:prod": "NODE_PATH='./dist' pm2 start node dist/index.js"
   },
   "dependencies": {
     "@octokit/core": "^3.6.0",
     "axios": "^0.27.2",
-    "maplenow-tool": "1.0.11",
+    "maplenow-tool": "^1.1.4",
     "next": "^12.1.6",
     "node-cron": "^3.0.0",
     "prettier": "^2.6.2",
@@ -29,6 +30,7 @@
     "@types/react-dom": "^18.0.3",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
+    "dotenv": "^16.0.0",
     "eslint": "^8.14.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
@@ -39,8 +41,7 @@
     "prettier-eslint": "^14.0.0",
     "ts-jest": "^27.1.4",
     "tsc-watch": "^5.0.3",
-    "typescript": "^4.6.3",
-    "dotenv": "^16.0.0"
+    "typescript": "^4.6.3"
   },
   "repository": {
     "type": "git",
