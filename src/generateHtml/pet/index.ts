@@ -9,7 +9,7 @@ const wonderBerryPage = async () => {
     await Paragraphs.Pet.getWonderBerryParagraphList();
   const CurrentPageTitle = '위습의 원더베리';
   const directory = `${basedir}/1.html`;
-  return await writeHtml({
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,
@@ -24,7 +24,7 @@ const crystalSweetPage = async () => {
     await Paragraphs.Pet.getCrystalSweetParagraphList();
   const CurrentPageTitle = '루나 크리스탈 스윗';
   const directory = `${basedir}/2.html`;
-  return await writeHtml({
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,
@@ -39,7 +39,7 @@ const crystalDreamPage = async () => {
     await Paragraphs.Pet.getCrystalDreamParagraphList();
   const CurrentPageTitle = '루나 크리스탈 드림';
   const directory = `${basedir}/3.html`;
-  return await writeHtml({
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,

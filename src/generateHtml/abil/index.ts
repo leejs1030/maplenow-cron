@@ -9,7 +9,7 @@ const pointAbility = async () => {
     await Paragraphs.Abil.getPointParagraphList();
   const CurrentPageTitle = '명성치(옵션을 고정하지 않은 재설정만 포함)';
   const directory = `${basedir}/1.html`;
-  return await writeHtml({
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,
@@ -24,7 +24,7 @@ const circulatorAbility = async () => {
     await Paragraphs.Abil.getCirculatorParagraphList();
   const CurrentPageTitle = '미라클 서큘레이터';
   const directory = `${basedir}/2.html`;
-  return await writeHtml({
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,

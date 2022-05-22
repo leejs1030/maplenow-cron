@@ -9,7 +9,7 @@ const royalHairPage = async () => {
     await Paragraphs.Beauty.getRoyalHairParagraphList(false);
   const CurrentPageTitle = '로얄 헤어 쿠폰';
   const directory = `${basedir}/1.html`;
-  return await writeHtml({
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,
@@ -24,7 +24,7 @@ const royalFacePage = async () => {
     await Paragraphs.Beauty.getRoyalFaceParagraphList(false);
   const CurrentPageTitle = '로얄 성형 쿠폰';
   const directory = `${basedir}/2.html`;
-  return await writeHtml({
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,
@@ -39,7 +39,7 @@ const royalHairPageChange = async () => {
     await Paragraphs.Beauty.getRoyalHairParagraphList(true);
   const CurrentPageTitle = '체인지 로얄 헤어 쿠폰';
   const directory = `${basedir}/3.html`;
-  return await writeHtml({
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,
@@ -54,7 +54,37 @@ const royalFacePageChange = async () => {
     await Paragraphs.Beauty.getRoyalFaceParagraphList(true);
   const CurrentPageTitle = '체인지 로얄 성형 쿠폰';
   const directory = `${basedir}/4.html`;
-  return await writeHtml({
+  return writeHtml({
+    pageUuid,
+    subPageUuid,
+    paragraphs,
+    description,
+    CurrentPageTitle,
+    directory,
+  });
+};
+
+const beautyAwardHairPage = async () => {
+  const { pageUuid, subPageUuid, paragraphs, description } =
+    await Paragraphs.Beauty.getBeautyAwardHairParagraphList();
+  const CurrentPageTitle = '뷰티 어워즈 헤어 쿠폰';
+  const directory = `${basedir}/5.html`;
+  return writeHtml({
+    pageUuid,
+    subPageUuid,
+    paragraphs,
+    description,
+    CurrentPageTitle,
+    directory,
+  });
+};
+
+const beautyAwardFacePage = async () => {
+  const { pageUuid, subPageUuid, paragraphs, description } =
+    await Paragraphs.Beauty.getBeautyAwardFaceParagraphList();
+  const CurrentPageTitle = '뷰티 어워즈 성형 쿠폰';
+  const directory = `${basedir}/6.html`;
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,
@@ -72,7 +102,11 @@ const generateBeautyPage = async () => {
   const royalHairChange = await royalHairPageChange();
   await delay(843, 1984);
   const royalFaceChange = await royalFacePageChange();
-  return [royalHair, royalFace, royalHairChange, royalFaceChange];
+  await delay(125, 2626);
+  const beautyAwardHair = await beautyAwardHairPage();
+  await delay(843, 1984);
+  const beautyAwardFace = await beautyAwardFacePage();
+  return [royalHair, royalFace, royalHairChange, royalFaceChange, beautyAwardHair, beautyAwardFace];
 };
 
 export default generateBeautyPage;

@@ -9,7 +9,7 @@ const cubeRankUp = async () => {
     await Paragraphs.Cube.getRankUpParagraphList(false);
   const CurrentPageTitle = '잠재능력 등급 상승 확률';
   const directory = `${basedir}/1.html`;
-  return await writeHtml({
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,
@@ -24,7 +24,7 @@ const cubeOption = async () => {
     await Paragraphs.Cube.getOptionParagraphList(false);
   const CurrentPageTitle = '옵션 등급 설정 확률';
   const directory = `${basedir}/2.html`;
-  return await writeHtml({
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,
@@ -39,7 +39,7 @@ const cubeRankUpMiracle = async () => {
     await Paragraphs.Cube.getRankUpParagraphList(true);
   const CurrentPageTitle = '미라클 타임 잠재능력 등급 상승 확률';
   const directory = `${basedir}/3.html`;
-  return await writeHtml({
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,
@@ -54,7 +54,7 @@ const cubeOptionMiracle = async () => {
     await Paragraphs.Cube.getOptionParagraphList(true);
   const CurrentPageTitle = '미라클 타임 옵션 등급 설정 확률';
   const directory = `${basedir}/4.html`;
-  return await writeHtml({
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,

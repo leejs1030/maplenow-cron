@@ -9,7 +9,7 @@ const royalStylePage = async () => {
     await Paragraphs.Outfit.getRoyalStyleParagraphList();
   const CurrentPageTitle = '로얄스타일';
   const directory = `${basedir}/1.html`;
-  return await writeHtml({
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,
@@ -24,7 +24,7 @@ const redPiecePage = async () => {
     await Paragraphs.Outfit.getRedPieceParagraphList();
   const CurrentPageTitle = '마스터피스 레드';
   const directory = `${basedir}/2.html`;
-  return await writeHtml({
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,
@@ -39,7 +39,7 @@ const blackPiecePage = async () => {
     await Paragraphs.Outfit.getBlackPieceParagraphList();
   const CurrentPageTitle = '마스터피스 블랙';
   const directory = `${basedir}/3.html`;
-  return await writeHtml({
+  return writeHtml({
     pageUuid,
     subPageUuid,
     paragraphs,
